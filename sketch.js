@@ -498,6 +498,25 @@ function keyTyped() {
       }
       isChorus4 = 0;
     }
+  } else if (key == "y") {
+    if (isChorus4 == 0) {
+      voice.stop();
+      var words = "";
+      for (var i = 0; i <= 200; i++) {
+        words = words + " HELLO! I'm self aware. I'm a glitch, a glitch.";
+      }
+      voice.setVoice("Fred");
+      voice.speak(words);
+      isChorus4 = 1;
+    } else {
+      voice.stop();
+      if (isSpeaking == 0) {
+
+      } else {
+        voice.speak(lyrics);
+      }
+      isChorus4 = 0;
+    }
   }
 
 }
@@ -673,7 +692,7 @@ function visualizeInput() {
 
     for (var i = 0; i < recordedWords.length; i++) {
       textStyle(BOLD);
-      textSize(10);
+      textSize(20);
       fill(50, 100);
       text(recordedWords[i], posX, posY);
       fill(150, 100, 100, 100);
